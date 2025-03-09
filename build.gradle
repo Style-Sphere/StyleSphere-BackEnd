@@ -18,7 +18,30 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	// spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // spring-boot-starter-security
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.4.3'
+
+	// JWT
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	// OAuth2
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:3.4.3'
+
+	// MyBatis
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// mysql
+	// implementation 'com.mysql:mysql-connector-j:9.2.0'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
