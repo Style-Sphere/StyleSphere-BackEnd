@@ -1,4 +1,4 @@
-package com.example.styleSphere.config;
+package com.example.styleSphere.global.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

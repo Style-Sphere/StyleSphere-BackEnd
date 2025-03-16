@@ -1,4 +1,4 @@
-package com.example.styleSphere.security;
+package com.example.styleSphere.global.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
