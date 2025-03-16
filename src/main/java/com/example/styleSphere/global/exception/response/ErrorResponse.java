@@ -1,4 +1,4 @@
-package com.example.styleSphere.exception.response;
+package com.example.styleSphere.global.exception.response;
 
 import lombok.Builder;
 import lombok.Getter;

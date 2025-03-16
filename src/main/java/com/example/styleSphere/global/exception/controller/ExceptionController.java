@@ -1,4 +1,4 @@
-package com.example.styleSphere.exception.controller;
+package com.example.styleSphere.global.exception.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
