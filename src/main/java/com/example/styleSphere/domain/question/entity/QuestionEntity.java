@@ -1,5 +1,6 @@
 package com.example.styleSphere.domain.question.entity;
 
+import com.example.styleSphere.domain.goods.entity.GoodsEntity;
 import com.example.styleSphere.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -18,5 +19,9 @@ public class QuestionEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "goods_id")
+    private GoodsEntity goods;
 
 }
