@@ -55,7 +55,7 @@ public class UserEntity {
     private List<OrderEntity> orders;  // 주문 내역
 
     @OneToOne(mappedBy = "user")
-    private List<CartEntity> cartItems;  // 장바구니
+    private CartEntity cartItems;  // 장바구니
 
     @OneToMany(mappedBy = "user")
     private List<LikeEntity> likeItems;  // 좋아요한 항목
