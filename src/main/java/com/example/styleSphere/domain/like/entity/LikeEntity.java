@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "like")
+@Table(name = "likes")
 public class LikeEntity {
 
     @Id

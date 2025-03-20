@@ -16,7 +16,6 @@ public class GoodsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "goods_id")
     private Long id;
     @Column(nullable = false, length = 120, unique = true)
     private String goodsId;
