@@ -1,4 +1,4 @@
-package com.example.styleSphere.domain.user.dto;
+package com.example.styleSphere.domain.user.requestDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRequestDto {
+public class UserRequestDTO {
     private String email;
     private String password;
     private String nickname;
