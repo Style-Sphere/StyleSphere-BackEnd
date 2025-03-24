@@ -2,11 +2,14 @@ package com.example.styleSphere.domain.user.entity;
 
 import com.example.styleSphere.global.common.enums.UserGrade;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Getter
+@Setter
 @Table(name = "user_detail")
 public class UserDetailEntity {
 
@@ -29,6 +32,7 @@ public class UserDetailEntity {
 
     private Integer accumulatedPoints;  // 적립금
 
+    @Enumerated(EnumType.STRING)
     private UserGrade membershipGrade;  // 유저 등급
 
 }

@@ -11,14 +11,17 @@ import com.example.styleSphere.domain.coupon.entity.CouponEntity;
 import com.example.styleSphere.domain.like.entity.LikeEntity;
 import com.example.styleSphere.domain.review.entity.ReviewEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Getter
+@Setter
 @Table(name = "users")
 public class UserEntity {
 
@@ -76,3 +79,5 @@ public class UserEntity {
     private List<RewardPointEntity> rewardPoints;  // 적립금 내역
 
 }
+
+
