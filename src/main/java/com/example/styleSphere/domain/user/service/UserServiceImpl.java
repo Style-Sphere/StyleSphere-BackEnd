@@ -1,5 +1,6 @@
 package com.example.styleSphere.domain.user.service;
 
+import com.example.styleSphere.domain.user.requestDTO.LoginRequestDTO;
 import com.example.styleSphere.domain.user.requestDTO.UserRequestDTO;
 import com.example.styleSphere.domain.user.entity.UserDetailEntity;
 import com.example.styleSphere.domain.user.entity.UserEntity;
@@ -9,6 +10,7 @@ import com.example.styleSphere.domain.user.responseDTO.UserResponseDTO;
 import com.example.styleSphere.global.common.enums.UserGrade;
 import com.example.styleSphere.global.common.enums.UserRole;
 import com.example.styleSphere.global.common.enums.UserStatus;
+import com.example.styleSphere.global.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserDetailRepository userDetailRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Override
     public UserResponseDTO signup(UserRequestDTO requestDto) {
@@ -61,5 +64,20 @@ public class UserServiceImpl implements UserService {
                 userDetail.getGender(),
                 userDetail.getBirthdate()
         );
+    }
+
+    @Override
+    public String login(LoginRequestDTO requestDto) {
+        // 1. 이메일로 사용자 조회
+        UserEntity user = userRepository.findByEmail(requestDto.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 이메일입니다."));
+
+        // 2. 비밀번호 검증
+        if (!passwordEncoder.matches(requestDto.getPassword(), user.getPassword())) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+        // 3. 토큰 생성 및 반환
+        return jwtTokenProvider.createToken(user.getEmail());
     }
 }
